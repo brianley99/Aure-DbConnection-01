@@ -15,6 +15,15 @@ namespace Aure_DbConnection_01.Controllers
 
         public IActionResult Index()
         {
+            var mySecret = Environment.GetEnvironmentVariable("MySecret");
+
+            if (mySecret == null)
+            {
+                mySecret = "Not Today";
+            }
+
+            ViewData["MySecret"] = mySecret;
+
             return View();
         }
 
